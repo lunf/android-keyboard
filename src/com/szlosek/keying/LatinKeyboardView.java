@@ -17,16 +17,14 @@
 package com.szlosek.keying;
 
 import android.content.Context;
-import android.inputmethodservice.Keyboard;
-import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.Keyboard.Key;
+import android.inputmethodservice.KeyboardView;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import java.lang.Character;
-import java.lang.CharSequence;
-
 public class LatinKeyboardView extends KeyboardView {
+	
+	private static final String TAG = LatinKeyboardView.class.getSimpleName();
 
 	static final int KEYCODE_OPTIONS = -100;
 
@@ -39,7 +37,7 @@ public class LatinKeyboardView extends KeyboardView {
 	}
 	
 	public void onDetachedFromWindow() {
-		Log.d("Keying", "LatinKeyboardView.onDetachedFromWindow");
+		Log.d(TAG, "LatinKeyboardView.onDetachedFromWindow");
 	}
 
 	/*
@@ -55,7 +53,7 @@ public class LatinKeyboardView extends KeyboardView {
 	*/
 	@Override
 	protected boolean onLongPress(Key key) {
-		Log.d("Keying", "onLongPress");
+		Log.d(TAG, "onLongPress");
 		// Do nothing
 		return super.onLongPress(key);
 /*

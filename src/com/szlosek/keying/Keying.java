@@ -16,12 +16,11 @@
 
 package com.szlosek.keying;
 
+import java.util.List;
+
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
-import android.os.StrictMode;
-import android.os.StrictMode.ThreadPolicy;
-import android.os.StrictMode.ThreadPolicy.Builder;
 import android.text.method.MetaKeyKeyListener;
 import android.util.Log;
 import android.view.KeyCharacterMap;
@@ -30,10 +29,6 @@ import android.view.View;
 import android.view.inputmethod.CompletionInfo;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
-import android.view.inputmethod.InputMethodManager;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Example of writing an input method for a soft keyboard.  This code is
