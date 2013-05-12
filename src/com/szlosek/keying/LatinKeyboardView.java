@@ -17,13 +17,13 @@
 package com.szlosek.keying;
 
 import android.content.Context;
+import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.Keyboard.Key;
 import android.inputmethodservice.KeyboardView;
 import android.util.AttributeSet;
-import android.util.Log;
 
 public class LatinKeyboardView extends KeyboardView {
-	
+
 	private static final String TAG = LatinKeyboardView.class.getSimpleName();
 
 	static final int KEYCODE_OPTIONS = -100;
@@ -35,73 +35,15 @@ public class LatinKeyboardView extends KeyboardView {
 	public LatinKeyboardView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 	}
-	
-	public void onDetachedFromWindow() {
-		Log.d(TAG, "LatinKeyboardView.onDetachedFromWindow");
-	}
 
-	/*
-	@Override
-	public void setOnKeyboardActionListener(KeyboardView.OnKeyboardActionListener listener) {
-		super(listener);
-	}
-	*/
-
-	/*
-	Now that I figured out how to bypass the "double-tap does letter swap" (it was using android:codes),
-	I can bypass this, and do my own long press detection
-	*/
 	@Override
 	protected boolean onLongPress(Key key) {
-		Log.d(TAG, "onLongPress");
-		// Do nothing
-		return super.onLongPress(key);
-/*
-		CharSequence cs;
-		// Obey alternative keys from the XML
 		if (key.codes[0] == Keyboard.KEYCODE_CANCEL) {
 			getOnKeyboardActionListener().onKey(KEYCODE_OPTIONS, null);
 			return true;
 		} else {
-			if (key.popupCharacters != null && key.popupCharacters.length() > 0) {
-				getOnKeyboardActionListener().onKey(
-					Character.codePointAt(key.popupCharacters, 0), null);
-				return true;
-			} else {
-				return super.onLongPress(key);
-			}
+			return super.onLongPress(key);
 		}
-*/
 	}
-
-
-	@Override
-	public void swipeRight() {
-		Log.d("Keying", "swipeRight2");
-		/*
-		if (mCompletionOn) {
-			pickDefaultCandidate();
-		}
-		*/
-	}
-
-/*
-	@Override
-	public void swipeLeft() {
-		Log.d("Keying", "swipeLeft2");
-		((Keying) getOnKeyboardActionListener()).handleBackspace();
-	}
-
-	@Override
-	public void swipeDown() {
-		Log.d("Keying", "swipeDown2");
-		((Keying) getOnKeyboardActionListener()).handleClose();
-	}
-
-	@Override
-	public void swipeUp() {
-		Log.d("Keying", "swipeUp2");
-	}
-*/
 
 }
